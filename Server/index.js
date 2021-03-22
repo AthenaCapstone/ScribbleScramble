@@ -38,28 +38,28 @@ const getApiAndEmit = (socket) => {
 let getDrawingAndEmit = (socket) => {
   //   const drawing = "?";
   const drawing = { drawing: "picture" };
-  console.log("getting drawing?");
-  console.log("drawing", drawing);
+  console.log("server: getDrawingAndEmit: getting drawing?");
+  console.log("server: getDrawingAndEmit: drawing:", drawing);
   //   socket.on("drawing", (data) =>
   socket.broadcast.emit("drawing", drawing);
   //   );
 };
 
-socketIo.on("connection", (socket) => {
-  console.log("New client connected");
-  //   console.log("data", data);
-  if (interval) {
-    clearInterval(interval);
-  }
-  interval = setInterval(() => getApiAndEmit(socket), 1000);
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-    clearInterval(interval);
-  });
-});
+// socketIo.on("connection", (socket) => {
+//   console.log("New client connected");
+//   //   console.log("data", data);
+//   if (interval) {
+//     clearInterval(interval);
+//   }
+//   interval = setInterval(() => getApiAndEmit(socket), 1000);
+//   socket.on("disconnect", () => {
+//     console.log("Client disconnected");
+//     clearInterval(interval);
+//   });
+// });
 
 socketIo.on("connection", (socket) => {
-  console.log("testing sending drawing");
+  console.log("server on connection: sending drawing?");
 
   if (interval) {
     clearInterval(interval);
