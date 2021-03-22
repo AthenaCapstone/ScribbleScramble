@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
+import useSocket from "use-socket.io-client";
+
 const ENDPOINT = "http://127.0.0.1:4001";
 
 const SocketComp = () => {
+  const [drawing, sendDrawing] = useState("");
+
+  const [socket] = useSocket(ENDPOINT, {
+    autoConnect: false,
+    //any other options
+  });
+
+  socket.connect();
+  console.log(socket);
+
   //   const [response, setResponse] = useState("");
   // by default nobody's drawing
-  const [drawing, sendDrawing] = useState("");
   //   const socket = socketIOClient(ENDPOINT);
 
   //   useEffectOLD(() => {
@@ -16,15 +27,28 @@ const SocketComp = () => {
   //     return () => socket.disconnect();
   //   }, []);
 
+  //   const socket = socketIOClient(ENDPOINT);
+
   useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
+    //socket= io.connect("http://localhost:3000")
+    // const socket = socketIOClient(ENDPOINT);
     socket.on("drawing", (data) => {
       sendDrawing(data);
+      // console.log("are you drawing?")
     });
     return () => socket.disconnect();
   }, []);
 
-  let data = { drawing: "drawing" };
+  //   function mouseDragged() {}
+
+  let data = { x: "1", y: "2" };
+  //   let data = { x: mouseX, y: mouseY };
+
+  socket.emit(
+    "drawing",
+    data,
+    console.log("client emit: socket.js: data:", data)
+  );
 
   //   socket.emit(
   //     "data",
@@ -60,9 +84,7 @@ const SocketComp = () => {
 
   return (
     <div>
-      <p>
-        It's <time dateTime={response}>{response}</time>
-      </p>
+      <p>{/* It's <time dateTime={response}>{response}</time> */}</p>
     </div>
   );
 };
