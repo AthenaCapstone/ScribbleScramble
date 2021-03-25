@@ -19,7 +19,7 @@ const LandingPageComp = () => {
             <a href="/draw" style={{ color: "black" }}>
               <StartDrawImg>
                 {" "}
-                <img src="/images/drawBtn.png" />
+                {/* <img src="/images/drawBtn.png" /> */}
               </StartDrawImg>
               <LandingButton>Start Drawing Collab</LandingButton>
             </a>
@@ -30,7 +30,7 @@ const LandingPageComp = () => {
             <a href="/write" style={{ color: "black" }}>
               {" "}
               <StartWriteImg>
-                <img src="/images/writeBtn.png" />
+                {/* <img src="/images/writeBtn.png" /> */}
               </StartWriteImg>
               <LandingButton>Start Writing Collab</LandingButton>
             </a>
