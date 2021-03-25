@@ -5,7 +5,7 @@ export const Body = styled.div`
   display: flex;
   flex-flow: column wrap;
   width: 100%;
-  background-image: url(./images/background2.jpg);
+  background-image: url(./images/background.jpg);
   height: 100%;
 `;
 
@@ -154,6 +154,19 @@ export const ClearButton = styled.button`
   height: 28px;
   width: 55px;
   background-color: #134d44;
+  color: white;
+`;
+
+export const PngButton = styled.button`
+  border-radius: 6px;
+  border: 2px solid darkgrey;
+  align: center;
+  color: #216858;
+  margin: 0 1em;
+  margin-top: 10px;
+  height: 28px;
+  width: 33px;
+  background-color: #4c9c8a;
   color: white;
 `;
 

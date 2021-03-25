@@ -8,6 +8,7 @@ import {
   CanvasBackground,
   Palette,
   ClearButton,
+  PngButton,
 } from "./AppCSS";
 
 const DrawingCanvas = () => {
@@ -100,7 +101,12 @@ const DrawingCanvas = () => {
             onChange={() => updateBrush()}
           />
         </div>
-        <ClearButton onClick={() => canvas.clear()}>clear</ClearButton>
+        <PngButton onClick={() => canvas.clear()}>
+          <img
+            src="/images/trashBtn.png"
+            style={{ width: "100%", marginTop: "2px" }}
+          />
+        </PngButton>
       </Palette>
     </div>
   );
